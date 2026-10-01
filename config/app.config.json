@@ -1,0 +1,117 @@
+{
+  "app": {
+    "name": "JARVIS",
+    "environment": "development"
+  },
+  "window": {
+    "width": 1280,
+    "height": 800,
+    "devTools": true
+  },
+  "renderer": {
+    "devServerUrl": "http://127.0.0.1:5173"
+  },
+  "infrastructure": {
+    "commandTimeoutMs": 5000,
+    "maxRetryAttempts": 3,
+    "retryBackoffBaseMs": 250,
+    "healthPollIntervalMs": 15000,
+    "maxConsecutiveFailures": 3
+  },
+  "audio": {
+    "sampleRateHz": 16000,
+    "channels": 1,
+    "bitDepth": 16,
+    "bufferCapacity": 50,
+    "maxConcurrentSessions": 1,
+    "defaultLanguage": "en-US",
+    "noiseReductionEnabled": false,
+    "echoCancellationEnabled": false
+  },
+  "voiceRuntime": {
+    "defaultSessionTimeoutMs": 30000,
+    "maxRetryAttempts": 3,
+    "retryBackoffBaseMs": 250
+  },
+  "voiceProvider": {
+    "defaultGender": "female",
+    "defaultLanguage": "en-US",
+    "fallbackEnabled": true,
+    "preferredProviderId": null
+  },
+  "speechToText": {
+    "defaultLanguage": "en-US",
+    "autoDetectLanguage": false,
+    "supportedLanguages": [
+      "en-US",
+      "sw-KE"
+    ],
+    "streamingEnabled": true
+  },
+  "wakeWord": {
+    "defaultWakeWord": "Jarvis",
+    "sensitivity": 0.5,
+    "confidenceThreshold": 0.6,
+    "cooldownMs": 1500,
+    "secureWakeEnabled": false
+  },
+  "ai": {
+    "providers": {
+      "openai": {
+        "enabled": false,
+        "model": "gpt-4.1-mini",
+        "timeoutMs": 20000
+      },
+      "gemini": {
+        "enabled": true,
+        "model": "gemini-3.8-flash",
+        "timeoutMs": 20000
+      },
+      "claude": {
+        "enabled": true,
+        "model": "claude-sonnet-4-6",
+        "timeoutMs": 20000,
+        "maxTokens": 4096
+      }
+    },
+    "priorities": {
+      "general": [
+        "openai",
+        "gemini",
+        "claude",
+        "local"
+      ],
+      "coding": [
+        "claude",
+        "openai",
+        "gemini",
+        "local"
+      ],
+      "multimodal": [
+        "gemini",
+        "openai",
+        "claude",
+        "local"
+      ],
+      "planning": [
+        "openai",
+        "claude",
+        "gemini",
+        "local"
+      ]
+    },
+    "preferredProviderId": null,
+    "contextMaxTurns": 12,
+    "contextMaxChars": 8000
+  },
+  "database": {
+    "filename": "jarvis.sqlite",
+    "directory": "./database"
+  },
+  "logging": {
+    "level": "info",
+    "directory": "./logs",
+    "toFile": true,
+    "toConsole": true
+  }
+}

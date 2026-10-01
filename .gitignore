@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build output
+dist/
+dist-electron/
+build/
+out/
+release/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Runtime data (folders kept, contents ignored)
+database/*.sqlite
+database/*.sqlite3
+database/*.db
+logs/*.log
+
+# Editor / OS
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+
+# Test / coverage
+coverage/
+*.tsbuildinfo
+
+# Keep placeholder files
+!.gitkeep

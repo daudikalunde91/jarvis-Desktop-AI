@@ -1,0 +1,35 @@
+appId: com.jarvis.assistant
+productName: JARVIS
+copyright: Copyright © JARVIS Engineering
+
+directories:
+  output: release
+  buildResources: assets
+
+files:
+  - app/backend/dist/**/*
+  - app/frontend/dist/**/*
+  - package.json
+
+extraMetadata:
+  main: app/backend/dist/main.js
+
+asar: true
+
+win:
+  target: nsis
+  icon: assets/icon.ico
+
+mac:
+  target: dmg
+  icon: assets/icon.icns
+  category: public.app-category.productivity
+
+linux:
+  target: AppImage
+  icon: assets/icon.png
+  category: Utility
+
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true

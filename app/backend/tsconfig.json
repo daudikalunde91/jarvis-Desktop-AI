@@ -1,0 +1,26 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "outDir": "dist",
+    "rootDir": "src",
+    "types": ["node"],
+    "baseUrl": ".",
+    "paths": {
+      "@backend/*": ["src/*"],
+      "@config/*": ["../../config/*"],
+      "@brain/*": ["../brain/*"],
+      "@agents/*": ["../agents/*"],
+      "@communication/*": ["../communication/*"],
+      "@voice/*": ["../voice/*"],
+      "@vision/*": ["../vision/*"],
+      "@memory/*": ["../memory/*"],
+      "@awareness/*": ["../awareness/*"],
+      "@security/*": ["../security/*"],
+      "@plugins/*": ["../plugins/*"]
+    }
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "jarvis-backend",
+  "version": "0.2.2",
+  "private": true,
+  "description": "JARVIS backend / Electron main process foundation",
+  "main": "dist/main.js",
+  "scripts": {
+    "dev": "npm run build && electron .",
+    "build": "tsc -p tsconfig.json && tsc-alias -p tsconfig.json && node ../../scripts/copy-preload.cjs",
+    "start": "electron .",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.1.2",
+    "dotenv": "^16.4.5",
+    "electron-updater": "^6.2.1"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.11",
+    "@types/node": "^20.14.10",
+    "electron": "^31.2.0",
+    "typescript": "^5.5.3",
+    "tsx": "^4.16.2"
+  }
+}

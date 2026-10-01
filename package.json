@@ -1,0 +1,61 @@
+{
+  "name": "jarvis",
+  "version": "0.2.2",
+  "private": true,
+  "description": "JARVIS Desktop AI Assistant - Electron desktop agent with multi-provider AI, tools, system awareness and guarded automation",
+  "author": "JARVIS Engineering",
+  "license": "UNLICENSED",
+  "scripts": {
+    "bootstrap": "tsx scripts/bootstrap.ts",
+    "dev": "node scripts/dev.cjs",
+    "dev:frontend": "npm run dev --workspace=jarvis-frontend",
+    "dev:backend": "npm run dev --workspace=jarvis-backend",
+    "build": "npm run build:frontend && npm run build:backend",
+    "build:frontend": "npm run build --workspace=jarvis-frontend",
+    "build:backend": "npm run build --workspace=jarvis-backend",
+    "start": "npm run start --workspace=jarvis-backend",
+    "package": "npm run build && electron-builder --config electron-builder.yml",
+    "lint": "eslint . --ext .ts,.tsx",
+    "lint:fix": "eslint . --ext .ts,.tsx --fix",
+    "format": "prettier --write .",
+    "typecheck": "npm run typecheck --workspace=jarvis-frontend && npm run typecheck --workspace=jarvis-backend",
+    "test": "npx vitest run",
+    "rebuild:native": "electron-rebuild -f -w better-sqlite3",
+    "prepare:native": "node scripts/ensure-native.cjs",
+    "doctor": "node scripts/doctor.cjs",
+    "doctor:ai": "node scripts/doctor.cjs --check-ai",
+    "doctor:integrations": "node scripts/doctor.cjs --check-integrations"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.16.0",
+    "@typescript-eslint/parser": "^7.16.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "^2.29.1",
+    "prettier": "^3.3.2",
+    "tsx": "^4.16.2",
+    "typescript": "^5.5.3",
+    "vitest": "^1.6.0",
+    "electron-builder": "^26.15.3",
+    "@electron/rebuild": "^4.2.0",
+    "tsc-alias": "^1.8.10"
+  },
+  "workspaces": [
+    "app/frontend",
+    "app/backend"
+  ],
+  "allowScripts": {
+    "electron": true,
+    "better-sqlite3": true,
+    "esbuild": true,
+    "electron-winstaller": true,
+    "unrs-resolver": true
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-win32-x64-msvc": "^4.20.0"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
